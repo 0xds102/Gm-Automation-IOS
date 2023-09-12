@@ -28,7 +28,7 @@ def choose_and_schedule_gm_time():
     log_message("Executing gm_scheduler.py")
 
     chosen_gm_time_str = random.choice(gm_times)
-    log_message(f"Chosen GM time for the next day: {chosen_gm_time_str}")
+    log_message(f"Selected Good Morning ☼ time for today: {chosen_gm_time_str}")
 
     # Save the chosen time for the next day to a file
     with open(SCHEDULED_TIME_FILE, 'w') as f:
