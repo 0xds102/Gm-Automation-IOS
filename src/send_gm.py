@@ -7,15 +7,9 @@ LOG_FILE = "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/logs/gm_logs.txt"
 LAST_LOG_DAY_FILE = "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/logs/last_log_day.txt"
 
 gm_messages = [
-    "gooodmornning :)",
-    "gm this message was coded for you with love ily ♡",
-    "Goodmorning 🙃",
-    "Goodmorning 🫶🏻",
-    "hi ily gmgm",
-    "gooodmorning 💜",
-    "goodmorning Love ♡",
-    "Hi goodmorning I love you",
-    "hi hello I love you"
+    "goodmorning",
+    "gm",
+    "YOUR_CUSTOM_GM_MESSAGES"
 ]
 
 def log_message(msg):
