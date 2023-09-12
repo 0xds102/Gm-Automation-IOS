@@ -13,7 +13,7 @@ send_imessage.scpt: An AppleScript to send an iMessage.
 3. Place the com.YOUR_USER_gmscheduler.plist into the ~/Library/LaunchAgents/ directory.
 
 ## Usage
-The system utilizes macOS's launchd for scheduling. The gm_scheduler.py script is set to run at 11:11pm daily, but you can adjust this as needed in the plist file.
+The system utilizes macOS's launchd for scheduling. The gm_scheduler.py script is set to run at 12:12am daily, but you can adjust this as needed in the plist file.
 
 # Launch Agent Control
 
