@@ -34,7 +34,7 @@ def choose_and_schedule_gm_time():
     with open(SCHEDULED_TIME_FILE, 'w') as f:
         f.write(chosen_gm_time_str)
 
-    subprocess.Popen(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/runner.py"])
+    subprocess.run(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/runner.py"])
 
     log_message("gm_scheduler.py completed")
 
