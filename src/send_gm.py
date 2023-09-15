@@ -28,17 +28,19 @@ def log_message(msg):
         f.write(f"{datetime.datetime.now()} - {msg}\n")
 
 def send_message(phone_number, message):
-    result = subprocess.run(
-        ["/usr/bin/osascript", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/send_imessage.scpt", phone_number, message],
-        capture_output=True,
-        text=True
-    )
-    if result.stderr:
-        log_message(f"Subprocess error: {result.stderr}")
-    else:
-        log_message(f"Message '{message}' ₿$$₿__delivered_₿$$₿")
+    try:
+        result = subprocess.run(
+            ["/usr/bin/osascript", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/send_imessage.scpt", phone_number, message],
+            capture_output=True,
+            text=True
+        )
+        if result.stderr:
+            log_message(f"Subprocess error: {result.stderr}")
+        else:
+            log_message(f"Message '{message}' $$_delivered_$$")
+    except Exception as e:
+        log_message(f"Error while attempting to send message: {str(e)}")
 
 if __name__ == "__main__":
-    log_message("Executing send_gm.py")
     send_message("+_YOUR_NUMBER", random.choice(gm_messages))
     log_message("send_gm.py completed")
