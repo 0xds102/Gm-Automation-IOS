@@ -23,7 +23,7 @@ def log_message(msg):
         f.write(f"{datetime.datetime.now()} - {msg}\n")
 
 log_message("Executing runner.py")
-
+log_message(f"Attempting to read scheduled GM time from {os.path.basename(SCHEDULED_TIME_FILE)}")
 with open(SCHEDULED_TIME_FILE, 'r') as f:
     scheduled_time_str = f.read().strip()
 
@@ -43,9 +43,12 @@ log_message(f"Sleeping for {seconds_until_scheduled} seconds until scheduled GM 
 
 time.sleep(seconds_until_scheduled)
 
-log_message("Executing send_gm.py")
+log_message("Waking up to execute send_gm.py")
 
-subprocess.run(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/send_gm.py"])
+try:
+    subprocess.run(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/send_gm.py"])
+except Exception as e:
+    log_message(f"Error while running send_gm.py: {str(e)}")
 
 log_message("runner.py completed")
 
