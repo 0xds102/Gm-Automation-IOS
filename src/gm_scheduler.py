@@ -29,12 +29,17 @@ def choose_and_schedule_gm_time():
 
     chosen_gm_time_str = random.choice(gm_times)
     log_message(f"Selected Good Morning ☼ time for today: {chosen_gm_time_str}")
-
+    log_message(f"Attempting to write the selected time {chosen_gm_time_str} to {os.path.basename(SCHEDULED_TIME_FILE)}")
+    
     # Save the chosen time for the next day to a file
     with open(SCHEDULED_TIME_FILE, 'w') as f:
         f.write(chosen_gm_time_str)
+    log_message(f"Successfully wrote the selected time to {os.path.basename(SCHEDULED_TIME_FILE)}")   
 
-    subprocess.run(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/runner.py"])
+    try:
+        subprocess.run(["/usr/local/bin/python3", "/Users/YOUR_USER/YOUR_DIRECTORY/gm-automation/src/runner.py"])
+    except Exception as e:
+        log_message(f"Error while running runner.py: {str(e)}")
 
     log_message("gm_scheduler.py completed")
 
